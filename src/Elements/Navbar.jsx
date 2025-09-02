@@ -1,9 +1,12 @@
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
+  const location = useLocation()      
+  const textColor=location.pathname === "/" ? "text-white":"text-black" ;
   return (
     <div>
-      <div className="navbar     fixed top-0 left-0 z-50 shadow-xl text-white">
+      <div className={`navbar fixed top-0 left-0 z-50 shadow-xl  ${textColor}`}>
   <div className="navbar-start ">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -34,7 +37,7 @@ const Navbar = () => {
         <li><a>Item 3</a></li>
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl">daisyUI</a>
+    <a className="btn btn-ghost text-4xl font-bold">Student Life Toolkits</a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
@@ -51,8 +54,10 @@ const Navbar = () => {
       <li><a>Item 3</a></li>
     </ul>
   </div>
-  <div className="navbar-end">
-    <a className="btn">Button</a>
+  <div className="navbar-end flex flex-row gap-4 mr-4">
+    <Link to={"/register"}>Register</Link>
+    <Link to={"/login"}>Login</Link>
+
   </div>
 </div>
     </div>

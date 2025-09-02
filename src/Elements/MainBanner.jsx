@@ -16,10 +16,11 @@ const MainBanner = () => {
   return (
     <div>
            <Carousel>
-                <div >
-                    <img src={picture1}    className="w-full max-h-64 sm:max-h-80 md:max-h-96 lg:max-h-[28rem] object-fixed"/>
+              <div>
+                    <img src={picture7} className="w-full max-h-64 sm:max-h-80 md:max-h-96 lg:max-h-[28rem] object-fixed"/>
                     <p className="legend">Legend 1</p>
                 </div>
+              
                 <div>
                     <img src={picture2} className="w-full max-h-64 sm:max-h-80 md:max-h-96 lg:max-h-[28rem] object-fixed"/>
                     <p className="legend">Legend 1</p>
@@ -40,10 +41,7 @@ const MainBanner = () => {
                     <img src={picture6} className="w-full max-h-64 sm:max-h-80 md:max-h-96 lg:max-h-[28rem] object-fixed"/>
                     <p className="legend">Legend 1</p>
                 </div>
-                <div>
-                    <img src={picture7} className="w-full max-h-64 sm:max-h-80 md:max-h-96 lg:max-h-[28rem] object-fixed"/>
-                    <p className="legend">Legend 1</p>
-                </div>
+              
                 <div>
                     <img src={picture8} className="w-full max-h-64 sm:max-h-80 md:max-h-96 lg:max-h-[28rem] object-fixed"/>
                     <p className="legend">Legend 1</p>
