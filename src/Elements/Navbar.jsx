@@ -1,9 +1,27 @@
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import AuthContext from '../AuthenticaitonElements.jsx/AuthContext';
 
 const Navbar = () => {
-  const location = useLocation()      
+
+
+
+  const links=<>
+    <Link className='' to={"/"}>Home</Link>
+  </>
+  const {user,logout}=useContext(AuthContext)
+  const location = useLocation()    
+  const navigate = useNavigate()  
   const textColor=location.pathname === "/" ? "text-white":"text-black" ;
+
+  const handleLogout=()=>{
+    logout()
+    .then(result => console.log("succesfully logut"))
+    .catch(error => console.log(error.message))
+    
+    navigate("/")
+
+  }
   return (
     <div>
       <div className={`navbar fixed top-0 left-0 z-50 shadow-xl  ${textColor}`}>
@@ -26,38 +44,22 @@ const Navbar = () => {
       <ul
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-        <li><a>Item 1</a></li>
-        <li>
-          <a>Parent</a>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </li>
-        <li><a>Item 3</a></li>
+  {links}
       </ul>
     </div>
-    <a className="btn btn-ghost text-4xl font-bold">Student Life Toolkits</a>
+    <a className="btn btn-ghost text-sm md:text-2xl lg:text-4xl font-bold ">Student Life Toolkits</a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
-      <li><a>Item 1</a></li>
-      <li>
-        <details>
-          <summary>Parent</summary>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </details>
-      </li>
-      <li><a>Item 3</a></li>
+    {links}
     </ul>
   </div>
   <div className="navbar-end flex flex-row gap-4 mr-4">
-    <Link to={"/register"}>Register</Link>
-    <Link to={"/login"}>Login</Link>
-
+    {
+      user ?      <><button onClick={handleLogout}>Logout</button></>:<><Link to={"/register"} className='btn'>Register</Link>
+    <Link to={"/login"} className='btn'>Login</Link>
+</>
+    }
   </div>
 </div>
     </div>

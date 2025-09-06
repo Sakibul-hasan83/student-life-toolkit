@@ -6,6 +6,9 @@ import MainLayout from "./Layout/MainLayout";
 import Home from "./Elements/Home";
 import Login from "./AuthenticaitonElements.jsx/Login";
 import Register from "./AuthenticaitonElements.jsx/Register";
+import ClassScheduleTracker from "./ClassScheduleTracker/ClassScheduleTracker";
+import BudgetTracker from "./BudgetTracker/BudgetTracker";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -24,6 +27,15 @@ const router = createBrowserRouter([
             path:"/register",
             element:<Register></Register>
         },
+        {
+            path:"/classscheduletracker",
+            element:<ClassScheduleTracker></ClassScheduleTracker>
+        },
+        {
+            path:"/budgetracker",
+            element:<BudgetTracker></BudgetTracker>
+        },
+   
     ]
   },
 ]);

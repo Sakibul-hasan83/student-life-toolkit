@@ -1,5 +1,9 @@
+import { useContext } from "react";
+import AuthContext from "./AuthContext";
+import { Result } from "postcss";
 
 const Register = () => {
+  const {newUser}=useContext(AuthContext)
     const handleRegister=(event)=>{
 event.preventDefault()
 const form = event.target;
@@ -8,9 +12,14 @@ const password=form.password.value;
 const user = {email,password}
 console.log(user)
 
+
+newUser(email,password)
+.then(result => console.log("user created"))
+.catch(error => console.log(error.message))
+
     }
   return (
-  <div className="hero bg-base-200 min-h-screen">
+  <div className="hero bg-base-200 min-h-screen fixed  top-14">
   <div className="hero-content flex-col">
     <div className="text-center lg:text-left">
       <h1 className="text-5xl font-bold">Register now!</h1>

@@ -17,41 +17,41 @@ const MainBanner = () => {
     <div>
            <Carousel>
               <div>
-                    <img src={picture7} className="w-full max-h-64 sm:max-h-80 md:max-h-96 lg:max-h-[28rem] object-fixed"/>
+                    <img src={picture7} className="w-full max-h-64 sm:max-h-80 md:max-h-96 lg:max-h-[28rem] object-cover"/>
                     <p className="legend">Legend 1</p>
                 </div>
               
                 <div>
-                    <img src={picture2} className="w-full max-h-64 sm:max-h-80 md:max-h-96 lg:max-h-[28rem] object-fixed"/>
+                    <img src={picture2} className="w-full max-h-64 sm:max-h-80 md:max-h-96 lg:max-h-[28rem] object-cover"/>
                     <p className="legend">Legend 1</p>
                 </div>
                 <div>
-                    <img src={picture3}  className="w-full max-h-64 sm:max-h-80 md:max-h-96 lg:max-h-[28rem] object-fixed"/>
+                    <img src={picture3}  className="w-full max-h-64 sm:max-h-80 md:max-h-96 lg:max-h-[28rem] object-cover"/>
                     <p className="legend">Legend 1</p>
                 </div>
                 <div>
-                    <img src={picture4} className="w-full max-h-64 sm:max-h-80 md:max-h-96 lg:max-h-[28rem] object-fixed" />
+                    <img src={picture4} className="w-full max-h-64 sm:max-h-80 md:max-h-96 lg:max-h-[28rem] object-cover" />
                     <p className="legend">Legend 1</p>
                 </div>
                 <div>
-                    <img src={picture5} className="w-full max-h-64 sm:max-h-80 md:max-h-96 lg:max-h-[28rem] object-fixed" />
+                    <img src={picture5} className="w-full max-h-64 sm:max-h-80 md:max-h-96 lg:max-h-[28rem] object-cover" />
                     <p className="legend">Legend 1</p>
                 </div>
                 <div>
-                    <img src={picture6} className="w-full max-h-64 sm:max-h-80 md:max-h-96 lg:max-h-[28rem] object-fixed"/>
+                    <img src={picture6} className="w-full max-h-64 sm:max-h-80 md:max-h-96 lg:max-h-[28rem] object-cover"/>
                     <p className="legend">Legend 1</p>
                 </div>
               
                 <div>
-                    <img src={picture8} className="w-full max-h-64 sm:max-h-80 md:max-h-96 lg:max-h-[28rem] object-fixed"/>
+                    <img src={picture8} className="w-full max-h-64 sm:max-h-80 md:max-h-96 lg:max-h-[28rem] object-cover"/>
                     <p className="legend">Legend 1</p>
                 </div>
                 <div>
-                    <img src={picture9} className="w-full max-h-64 sm:max-h-80 md:max-h-96 lg:max-h-[28rem] object-fixed"/>
+                    <img src={picture9} className="w-full max-h-64 sm:max-h-80 md:max-h-96 lg:max-h-[28rem] object-cover"/>
                     <p className="legend">Legend 1</p>
                 </div>
                 <div>
-                    <img src={picture10} className="w-full max-h-64 sm:max-h-80 md:max-h-96 lg:max-h-[28rem] object-fixed" />
+                    <img src={picture10} className="w-full max-h-64 sm:max-h-80 md:max-h-96 lg:max-h-[28rem] object-cover" />
                     <p className="legend">Legend 1</p>
                 </div>
                 
