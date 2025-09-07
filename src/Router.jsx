@@ -8,6 +8,10 @@ import Login from "./AuthenticaitonElements.jsx/Login";
 import Register from "./AuthenticaitonElements.jsx/Register";
 import ClassScheduleTracker from "./ClassScheduleTracker/ClassScheduleTracker";
 import BudgetTracker from "./BudgetTracker/BudgetTracker";
+import PrecticeQuestions from "./PrecticeQuestions/PrecticeQuestions";
+import StudyPlanner from "./StudyPlanner/StudyPlanner";
+import MotivationalSystem from "./MotivationalSystem/MotivationalSystem";
+import StudyTime from "./StudyTime/StudyTime";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +38,24 @@ const router = createBrowserRouter([
         {
             path:"/budgetracker",
             element:<BudgetTracker></BudgetTracker>
+        },
+        {
+            path:"/precticequestion",
+            element:<PrecticeQuestions></PrecticeQuestions>
+        },
+   
+        {
+            path:"/studyplanner",
+            element:<StudyPlanner></StudyPlanner>
+        },
+   
+        {
+            path:"/motivation",
+            element:<MotivationalSystem></MotivationalSystem>
+        },
+        {
+            path:"/studytime",
+            element:<StudyTime></StudyTime>
         },
    
     ]

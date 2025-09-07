@@ -104,7 +104,7 @@ const handleExpense = (e) => {
                                                                       <h2>Total Income </h2> 
                                                                       <SlArrowDownCircle className='' />
                                                               </div>
-                                                              <div>
+                                                              <div className='text-2xl font-bold text-green-400'>
                                                                 ${income}
                                                               </div>
                                                               <div>
@@ -120,7 +120,7 @@ const handleExpense = (e) => {
                                                                       <h2>Total Expense </h2> 
                                                                       <SlArrowDownCircle className='' />
                                                               </div>
-                                                              <div>
+                                                              <div className='text-2xl font-bold text-red-400'>
                                                                 ${expense}
                                                               </div>
                                                               <div>
@@ -136,7 +136,7 @@ const handleExpense = (e) => {
                                                                       <h2>Main Balance </h2> 
                                                                       <SlArrowDownCircle className='' />
                                                               </div>
-                                                              <div>
+                                                              <div className='text-2xl font-bold text-blue-400'>
                                                                 ${mainBalance}
                                                               </div>
                                                               <div>
