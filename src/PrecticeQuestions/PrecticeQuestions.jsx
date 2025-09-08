@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../AuthenticaitonElements.jsx/AuthContext";
 
+//practiceQuestions
 const PracticeQuestions = () => {
   const [questions, setQuestions] = useState([]);
   const [category, setCategory] = useState("MCQ");
