@@ -39,7 +39,7 @@ const PracticeQuestions = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto mt-20 p-6 bg-white shadow-lg rounded-lg">
+    <div className="max-w-2xl mx-auto mt-40 p-6 bg-white shadow-lg rounded-lg">
       <h1 className="text-3xl font-bold text-center mb-6">Practice Questions</h1>
 
       {/* Filters */}

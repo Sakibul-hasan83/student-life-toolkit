@@ -7,7 +7,7 @@ const Navbar = () => {
 
 
   const links=<>
-    <Link className='' to={"/"}>Home</Link>
+    <Link className='text-black  md:font-bold' to={"/"}>Home</Link>
   </>
   const {user,logout}=useContext(AuthContext)
   const location = useLocation()    

@@ -62,7 +62,7 @@ else{
 
 const handleStudyPlane =()=>{
 
-  if(!user){navigate("login",{state:{from:"handleStudyPlane"}})}
+  if(!user){navigate("/login",{state:{from:"handleStudyPlane"}})}
   else{navigate("handleStudyPlane")}
 }
 
@@ -125,13 +125,13 @@ else(navigate("/studytime"))
 
 {/* 4th card */}
 
-   <div className="card bg-[#f1f1f1]   text-black items-center">
+    <div className="card bg-[#f1f1f1]  text-black items-center">
       <img src={studyPlaneIcon} alt="" className='w-20 mt-4' />
   <div className="card-body items-center text-center">
-    <h2 className="card-title text-4xl font-bold ">Study Planner</h2>
-    <p></p>
+    <h2 className="card-title text-4xl font-bold ">Study Planne</h2>
+ 
     <div className="card-actions justify-end">
-        <button className='btn bg-[#67C090] text-white' to={"/studyplanner"} onClick={handleStudyPlane}>Clicke for Study Planne </button>
+      <Link to={"/studyplanne"} onClick={handleStudyPlane} className='btn  bg-[#67C090] text-white'>Click for Study Planne</Link>
     </div>
   </div>
 </div>    
@@ -142,7 +142,7 @@ else(navigate("/studytime"))
       <img src={motivation} alt="" className='w-20 mt-4' />
   <div className="card-body items-center text-center">
     <h2 className="card-title text-4xl font-bold ">Motivations</h2>
-    <p>Create routine time,teacher wise .</p>
+
     <div className="card-actions justify-end">
         <button className='btn bg-[#67C090] text-white' to={"/motivation"} onClick={handleMotivation}>Clicke for Motivations </button>
     </div>
@@ -157,7 +157,7 @@ else(navigate("/studytime"))
       <img src={timeIcon} alt="" className='w-20 mt-4' />
   <div className="card-body items-center text-center">
     <h2 className="card-title text-4xl font-bold ">Study Time</h2>
-    <p>Create routine time,teacher wise .</p>
+  
     <div className="card-actions justify-end">
         <button className='btn bg-[#67C090] text-white' to={"/studytime"} onClick={handleStudyTime}>Clicke for Study Time </button>
     </div>

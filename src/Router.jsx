@@ -9,9 +9,15 @@ import Register from "./AuthenticaitonElements.jsx/Register";
 import ClassScheduleTracker from "./ClassScheduleTracker/ClassScheduleTracker";
 import BudgetTracker from "./BudgetTracker/BudgetTracker";
 import PrecticeQuestions from "./PrecticeQuestions/PrecticeQuestions";
-import StudyPlanner from "./StudyPlanner/StudyPlanner";
+
 import MotivationalSystem from "./MotivationalSystem/MotivationalSystem";
 import StudyTime from "./StudyTime/StudyTime";
+import StudyPlanne from "./StudyPlanner/StudyPlanne";
+import Dashboard from "./BudgetTracker/Dashboard";
+import Transactions from "./BudgetTracker/Transactions";
+import Budgets from "./BudgetTracker/Budgets";
+import Savings from "./BudgetTracker/Savings";
+
 
 const router = createBrowserRouter([
   {
@@ -43,12 +49,7 @@ const router = createBrowserRouter([
             path:"/precticequestion",
             element:<PrecticeQuestions></PrecticeQuestions>
         },
-   
-        {
-            path:"/studyplanner",
-            element:<StudyPlanner></StudyPlanner>
-        },
-   
+
         {
             path:"/motivation",
             element:<MotivationalSystem></MotivationalSystem>
@@ -57,7 +58,26 @@ const router = createBrowserRouter([
             path:"/studytime",
             element:<StudyTime></StudyTime>
         },
-   
+        {
+            path:"/studyplanne",
+            element: <StudyPlanne></StudyPlanne>
+        },
+        {
+            path:"/dashboard",
+            element: <Dashboard></Dashboard>
+        },
+        {
+            path:"/transactions",
+            element: <Transactions></Transactions>
+        },
+        {
+            path:"/budget",
+            element: <Budgets></Budgets>
+        },
+        {
+            path:"/savings",
+            element: <Savings></Savings>
+        },
     ]
   },
 ]);
