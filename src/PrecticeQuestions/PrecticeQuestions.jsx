@@ -9,13 +9,16 @@ const PracticeQuestions = () => {
   const [question, setQuestion] = useState(null);
   const [answer, setAnswer] = useState("");
   const [result, setResult] = useState("");
-
-  useEffect(() => {
+useEffect(() => {
     fetch("http://localhost:5000/allquestions")
       .then(res => res.json())
-      .then(data => setQuestions(data))
+      .then(data => {
+        setQuestions(data);
+        console.log("Questions fetched:", data); // check data
+      })
       .catch(err => console.log(err));
-  }, []);
+}, []);
+
 
   const generateQuestion = () => {
     const filtered = questions.filter(
