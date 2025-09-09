@@ -32,7 +32,7 @@ const BudgetTracker = () => {
       })
         .then(res => res.json())
         .then(data => setToken(data.token))
-        .catch(err => console.log(err));
+        // .catch(err => console.log(err));
     }
   }, [user]);
 
@@ -44,7 +44,7 @@ const BudgetTracker = () => {
       })
         .then(res => res.json())
         .then(data => setTransactions(data))
-        .catch(err => console.log(err));
+        // .catch(err => console.log(err));
     }
   }, [user, token]);
 
@@ -78,7 +78,7 @@ const BudgetTracker = () => {
       <h1 className="text-4xl font-bold">Personal Budget Tracker</h1>
 
       {/* Top buttons */}
-      <div className="grid grid-cols-4 p-10 gap-4">
+      <div className=" flex flex-col md:grid  md:grid-cols-4 p-10 gap-4">
         <Link to="/dashboard" className="btn">Dashboard</Link>
         <Link to="/transactions" className="btn">Transactions</Link>
         <Link to="/budget" className="btn">Budget</Link>
@@ -86,7 +86,7 @@ const BudgetTracker = () => {
       </div>
 
       {/* Forms */}
-      <div className="flex gap-10 justify-center mt-8">
+      <div className=" flex flex-col gap-4 md:flex md:flex-row md:gap-10 justify-center mt-8">
         <form onSubmit={e => handleSubmit(e, "income")} className="flex gap-2">
           <input type="number" name="amount" placeholder="Add Income" className="input input-bordered" required />
           <button className="btn btn-primary">Add Income</button>
@@ -98,7 +98,7 @@ const BudgetTracker = () => {
       </div>
 
       {/* Summary cards */}
-      <div className="grid grid-cols-4 gap-6 mt-10">
+      <div className="  flex flex-col  md:grid md:grid-cols-4 gap-6 mt-10">
         <div className="p-4 shadow rounded bg-green-100">
           <h2>Total Income</h2>
           <div className="text-2xl font-bold text-green-500">${income}</div>

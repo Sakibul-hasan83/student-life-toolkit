@@ -16,8 +16,8 @@ const Navbar = () => {
 
   const handleLogout=()=>{
     logout()
-    .then(result => console.log("succesfully logut"))
-    .catch(error => console.log(error.message))
+    // .then(result => console.log("succesfully logut"))
+    // .catch(error => console.log(error.message))
     
     navigate("/")
 
@@ -47,7 +47,7 @@ const Navbar = () => {
   {links}
       </ul>
     </div>
-    <a className="btn btn-ghost text-sm md:text-2xl lg:text-4xl font-bold ">Student Life Toolkits</a>
+    <a className="btn btn-ghost  md:text-2xl lg:text-4xl font-bold ">Student Life Toolkits</a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
@@ -57,7 +57,7 @@ const Navbar = () => {
   <div className="navbar-end flex flex-row gap-4 mr-4">
     {
       user ?      <><button onClick={handleLogout}>Logout</button></>:<><Link to={"/register"} className='btn'>Register</Link>
-    <Link to={"/login"} className='btn'>Login</Link>
+    <Link to={"/login"} className='btn '>Login</Link>
 </>
     }
   </div>

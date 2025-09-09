@@ -14,18 +14,18 @@ const Register = () => {
     // Create new user with Firebase Auth
     newUser(email, password)
       .then((result) => {
-        console.log("User created:", result.user);
+        // console.log("User created:", result.user);
 
         // Show alert message after successful registration
         alert("Successful register! Now you can login.");
 
         // Optionally, log out the user automatically
         logout().catch((err) => {
-          console.log("Logout error:", err.message);
+          // console.log("Logout error:", err.message);
         });
       })
       .catch((error) => {
-        console.log("Registration error:", error.message); // Log registration error
+        // console.log("Registration error:", error.message); // Log registration error
         alert(error.message); // Show alert if registration fails
       });
 

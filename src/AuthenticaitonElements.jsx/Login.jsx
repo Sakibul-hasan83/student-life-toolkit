@@ -18,12 +18,12 @@ const form = event.target;
 const email=form.email.value;
 const password=form.password.value;
 const user = {email,password}
-console.log(user)
+// console.log(user)
 
 // login
 login(email,password)
-.then(result=>console.log(result.user))
-.catch(error =>console.log(error.message))
+// .then(result=>console.log(result.user))
+// .catch(error =>console.log(error.message))
 
 navigate(from,{replace:true})
 

@@ -15,9 +15,9 @@ useEffect(() => {
       .then(res => res.json())
       .then(data => {
         setQuestions(data);
-        console.log("Questions fetched:", data); // check data
+        // console.log("Questions fetched:", data); // check data
       })
-      .catch(err => console.log(err));
+      // .catch(err => console.log(err));
 }, []);
 
 
