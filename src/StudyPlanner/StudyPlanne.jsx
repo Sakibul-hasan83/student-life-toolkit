@@ -8,7 +8,7 @@ const StudyPlanner = () => {
 
   // Fetch plans
   useEffect(() => {
-    fetch("http://localhost:5000/plans") // Deploy হলে URL change করুন
+    fetch("https://studenttoolkitserver.vercel.app/plans") // Deploy হলে URL change করুন
       .then((res) => res.json())
       .then((data) => setPlans(data));
   }, []);
@@ -18,7 +18,7 @@ const StudyPlanner = () => {
     e.preventDefault();
     const newPlan = { subject, priority, deadline };
 
-    const res = await fetch("http://localhost:5000/plans", {
+    const res = await fetch("https://studenttoolkitserver.vercel.app/plans", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newPlan),
@@ -35,7 +35,7 @@ const StudyPlanner = () => {
 
   // Delete plan
   const handleDelete = async (id) => {
-    await fetch(`http://localhost:5000/plans/${id}`, { method: "DELETE" });
+    await fetch(`https://studenttoolkitserver.vercel.app/plans/${id}`, { method: "DELETE" });
     setPlans(plans.filter((p) => p._id !== id));
   };
 

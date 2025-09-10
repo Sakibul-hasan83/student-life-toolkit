@@ -8,7 +8,7 @@ const ClassScheduleTracker = () => {
 
   // Fetch routines from backend
   useEffect(() => {
-    fetch("http://localhost:5000/routines")
+    fetch("https://studenttoolkitserver.vercel.app/routines")
       .then(res => res.json())
       .then(data => setRoutines(data))
       .catch(err => console.error("Error fetching routines:", err));
@@ -27,7 +27,7 @@ const ClassScheduleTracker = () => {
     };
 
     try {
-      const res = await fetch("http://localhost:5000/routines", {
+      const res = await fetch("https://studenttoolkitserver.vercel.app/routines", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(routineData)
@@ -42,7 +42,7 @@ const ClassScheduleTracker = () => {
 
   const handleClearAll = async () => {
     try {
-      await fetch("http://localhost:5000/routines", { method: "DELETE" });
+      await fetch("https://studenttoolkitserver.vercel.app/routines", { method: "DELETE" });
       setRoutines([]);
     } catch (err) {
       console.error("Error clearing routines:", err);

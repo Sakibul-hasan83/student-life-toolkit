@@ -11,7 +11,7 @@ const PracticeQuestions = () => {
   const [answer, setAnswer] = useState("");
   const [result, setResult] = useState("");
 useEffect(() => {
-    fetch("http://localhost:5000/allquestions")
+    fetch("https://studenttoolkitserver.vercel.app/allquestions")
       .then(res => res.json())
       .then(data => {
         setQuestions(data);

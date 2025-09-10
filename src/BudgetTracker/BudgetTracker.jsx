@@ -26,7 +26,7 @@ const BudgetTracker = () => {
     if (!user?.uid) return;
     const fetchToken = async () => {
       try {
-        const res = await fetch("http://localhost:5000/jwt", {
+        const res = await fetch("https://studenttoolkitserver.vercel.app/jwt", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ uid: user.uid, email: user.email })
@@ -45,7 +45,7 @@ const BudgetTracker = () => {
     if (!user?.uid || !token) return;
     const fetchTransactions = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/budgettracker/${user.uid}`, {
+        const res = await fetch(`https://studenttoolkitserver.vercel.app/budgettracker/${user.uid}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         const data = await res.json();
@@ -64,7 +64,7 @@ const BudgetTracker = () => {
     if (!amount || amount <= 0) return alert("Enter a valid amount");
 
     try {
-      const res = await fetch("http://localhost:5000/budgettracker", {
+      const res = await fetch("https://studenttoolkitserver.vercel.app/budgettracker", {
         method: "POST",
         headers: { 
           "Content-Type": "application/json",
