@@ -1,6 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-
-import { SlArrowDownCircle } from "react-icons/sl";
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 import { Link } from 'react-router-dom';
 import AuthContext from '../AuthenticaitonElements.jsx/AuthContext';
@@ -10,7 +8,9 @@ const BudgetTracker = () => {
   const [transactions, setTransactions] = useState([]);
   const [token, setToken] = useState("");
 
-  // Calculate totals
+  const COLORS = ["#4CAF50", "#F44336", "#2196F3"];
+
+  // ===== Calculate totals =====
   const income = transactions.filter(t => t.type === "income").reduce((acc, t) => acc + t.amount, 0);
   const expense = transactions.filter(t => t.type === "expense").reduce((acc, t) => acc + t.amount, 0);
   const balance = income - expense;
@@ -20,55 +20,65 @@ const BudgetTracker = () => {
     { name: "Expense", value: expense },
     { name: "Balance", value: balance }
   ];
-  const COLORS = ["#4CAF50", "#F44336", "#2196F3"];
 
-  // Get JWT from backend
+  // ===== Fetch JWT from backend =====
   useEffect(() => {
-    if (user?.uid) {
-      fetch("http://localhost:5000/jwt", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ uid: user.uid, email: user.email })
-      })
-        .then(res => res.json())
-        .then(data => setToken(data.token))
-        // .catch(err => console.log(err));
-    }
+    if (!user?.uid) return;
+    const fetchToken = async () => {
+      try {
+        const res = await fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ uid: user.uid, email: user.email })
+        });
+        const data = await res.json();
+        setToken(data.token);
+      } catch (err) {
+        console.error("❌ Error fetching JWT:", err);
+      }
+    };
+    fetchToken();
   }, [user]);
 
-  // Fetch user transactions
+  // ===== Fetch user transactions =====
   useEffect(() => {
-    if (user?.uid && token) {
-      fetch(`http://localhost:5000/budgettracker/${user.uid}`, {
-        headers: { Authorization: `Bearer ${token}` }
-      })
-        .then(res => res.json())
-        .then(data => setTransactions(data))
-        // .catch(err => console.log(err));
-    }
+    if (!user?.uid || !token) return;
+    const fetchTransactions = async () => {
+      try {
+        const res = await fetch(`http://localhost:5000/budgettracker/${user.uid}`, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        const data = await res.json();
+        setTransactions(data);
+      } catch (err) {
+        console.error("❌ Error fetching transactions:", err);
+      }
+    };
+    fetchTransactions();
   }, [user, token]);
 
-  // Add transaction handler
+  // ===== Add transaction handler =====
   const handleSubmit = async (e, type) => {
     e.preventDefault();
     const amount = Number(e.target.amount.value);
     if (!amount || amount <= 0) return alert("Enter a valid amount");
 
-    const newTransaction = { uid: user.uid, type, amount };
+    try {
+      const res = await fetch("http://localhost:5000/budgettracker", {
+        method: "POST",
+        headers: { 
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({ uid: user.uid, type, amount })
+      });
 
-    const res = await fetch("http://localhost:5000/budgettracker", {
-      method: "POST",
-      headers: { 
-        "Content-Type": "application/json", 
-        Authorization: `Bearer ${token}` 
-      },
-      body: JSON.stringify(newTransaction)
-    });
-
-    if (res.ok) {
-      setTransactions(prev => [...prev, newTransaction]);
+      if (!res.ok) throw new Error("Failed to save transaction");
+      const data = await res.json();
+      setTransactions(prev => [...prev, { uid: user.uid, type, amount, createdAt: new Date(), _id: data.insertedId }]);
       e.target.reset();
-    } else {
+    } catch (err) {
+      console.error("❌ Error adding transaction:", err);
       alert("Error saving data");
     }
   };
@@ -78,7 +88,7 @@ const BudgetTracker = () => {
       <h1 className="text-4xl font-bold">Personal Budget Tracker</h1>
 
       {/* Top buttons */}
-      <div className=" flex flex-col md:grid  md:grid-cols-4 p-10 gap-4">
+      <div className="flex flex-col md:grid md:grid-cols-4 p-10 gap-4">
         <Link to="/dashboard" className="btn">Dashboard</Link>
         <Link to="/transactions" className="btn">Transactions</Link>
         <Link to="/budget" className="btn">Budget</Link>
@@ -86,7 +96,7 @@ const BudgetTracker = () => {
       </div>
 
       {/* Forms */}
-      <div className=" flex flex-col gap-4 md:flex md:flex-row md:gap-10 justify-center mt-8">
+      <div className="flex flex-col gap-4 md:flex md:flex-row md:gap-10 justify-center mt-8">
         <form onSubmit={e => handleSubmit(e, "income")} className="flex gap-2">
           <input type="number" name="amount" placeholder="Add Income" className="input input-bordered" required />
           <button className="btn btn-primary">Add Income</button>
@@ -98,7 +108,7 @@ const BudgetTracker = () => {
       </div>
 
       {/* Summary cards */}
-      <div className="  flex flex-col  md:grid md:grid-cols-4 gap-6 mt-10">
+      <div className="flex flex-col md:grid md:grid-cols-4 gap-6 mt-10">
         <div className="p-4 shadow rounded bg-green-100">
           <h2>Total Income</h2>
           <div className="text-2xl font-bold text-green-500">${income}</div>
